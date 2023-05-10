@@ -1,0 +1,14 @@
+//1) Realizar una funcion que reciba un numero y escriba una piramide desde 1 hasta ese numero de la siguiente forma:
+//para valor 6
+
+function  piramide(numero){
+    let palabra = '';
+    for (let index = 1; index < numero+1; index++) {
+        palabra = palabra + index;
+        console.log(palabra);
+    }
+}
+
+//ejemplo
+piramide(6);
+piramide(3);
