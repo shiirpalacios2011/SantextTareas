@@ -1,0 +1,80 @@
+/*  3)
+3.1) Dado el siguiente objeto
+let carrito = {
+    montoTotal: 10,
+    productos: ["Leche"]
+}
+
+Crear las clases necesarias para generar carritos respetando la estructura del objeto dado.
+
+3.2) Agregar un metodo a la clase que agregue un producto al carrito y actualice el montoTotal
+agregarProducto(nombre, precio, unidades) {
+    // Completar aca...
+}
+
+
+Ej:
+agregarProducto("Azucar", 5, 2);
+
+//Resultado esperado
+carrito = {
+    montoTotal: 20,
+    productos: ["Leche", "Azucar"]
+}
+
+
+ 3.3)Agregar al ejercicio anterior una validación para no permitir duplicados e imprimir un mensaje si el item ya existe “ya existe xxx con yyy unidades” */
+
+
+class Carrito {
+    constructor(totalAmount = 0, products = []) {
+      this.totalAmount = totalAmount;
+      this.products = products;
+    }
+    
+    agregarProducto(name, price, units) {
+      const existsProduct = this.products.find((product) => product.name === name);
+      
+      if (existsProduct) {
+        console.log(`Ya existe ${name} con ${existsProduct.units} unidades`);
+      } else {
+        let product = {name, price, units};
+        this.products.push(product);
+  
+        this.totalAmount += price * units;
+      }
+   
+   
+    }
+   
+    buscarProducto(name) {
+     
+      const existsProduct = this.products.find((product) => product.name === name);
+      
+      if (existsProduct) {
+     
+        console.log(`Ya existe ${name} con ${existsProduct.units} unidades`);
+        
+      }
+  
+      return existsProduct;
+    }
+  }
+  
+ 
+  let carrito = new Carrito();
+  
+
+  carrito.agregarProducto("Leche", 10, 1);
+  
+  carrito.agregarProducto("Azucar", 15, 2);
+  
+  carrito.agregarProducto("Harina", 8, 3);
+  
+  carrito.agregarProducto("Pan", 6, 6);
+  
+  carrito.agregarProducto("Pan", 10, 5);
+  
+  console.log(carrito);
+  console.log(`Monto total: ${carrito.totalAmount}`);
+  
