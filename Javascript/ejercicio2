@@ -1,0 +1,29 @@
+//2) Escribir una funcion que reciba 2 array y devuelva un array con todos los elementos que coinciden entre ellos
+
+function similar(arreglo1, arreglo2, resultado){
+    let indice = 0;
+    for (let index1 = 0; index1 < arreglo1.length; index1++) {
+        for (let index2 = 0; index2 < arreglo2.length; index2++) {
+           if (arreglo1[index1] == arreglo2[index2] && !resultado.includes(arreglo1[index1])){
+             resultado[indice] = arreglo1[index1];
+             indice++;
+           }
+        }
+    }
+}
+
+//EJEMPLO
+arreglo1 = [4, 3, true, 'manzana']
+arreglo2 = ['pera', 3, false, true, 3, true]
+resultado = []
+similar(arreglo1, arreglo2, resultado)
+console.log(resultado)
+//Resultado: [3, true]
+
+
+arreglo1 = ['rojo', 'azul', 'amarillo']
+arreglo2 = ['blanco', 'negro', 'rojo']
+resultado = []
+similar(arreglo1, arreglo2, resultado)
+console.log(resultado)
+//Resultado: ['rojo']
